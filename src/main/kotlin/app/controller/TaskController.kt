@@ -1,6 +1,6 @@
-package spring.service.controller
+package app.controller
 
-import spring.service.data.Task
+import app.data.Task
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import spring.service.TaskService
+import app.service.TaskService
 
 @RestController
 @RequestMapping("api/v1/task")
@@ -26,7 +26,7 @@ class TaskController(private val taskService: TaskService) {
         taskService.deleteTask(id)
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     fun changeTaskStatus(@PathVariable("id") id: Int, @RequestParam("status") status: Boolean): Task {
         return if (status) {
             taskService.completeTask(id)

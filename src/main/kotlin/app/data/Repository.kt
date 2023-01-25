@@ -1,4 +1,4 @@
-package spring.service.data
+package app.data
 
 import org.springframework.stereotype.Component
 

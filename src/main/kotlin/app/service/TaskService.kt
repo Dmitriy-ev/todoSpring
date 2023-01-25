@@ -1,10 +1,9 @@
-package spring.service
+package app.service
 
-import spring.service.data.Task
-import spring.service.data.TasksRepository
-import spring.service.data.TasksRepositoryMemory
+import app.data.Task
+import app.data.TasksRepository
+import app.httperror.*
 import org.springframework.stereotype.Service
-import spring.service.httperror.*
 
 @Service
 class TaskService(private val taskRepo: TasksRepository) {
@@ -26,7 +25,7 @@ class TaskService(private val taskRepo: TasksRepository) {
             throw DeleteCompletedTaskException()
         }
         taskRepo.getTasks(false).find { it.id == id }?.let {
-            taskRepo.completeTask(id)
+            taskRepo.deleteTask(id)
         } ?: throw TaskNotFoundException()
     }
 

@@ -1,4 +1,4 @@
-package spring.service.httperror
+package app.httperror
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ControllerAdvice

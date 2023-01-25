@@ -1,8 +1,8 @@
-package menu
+package app.menu
 
-import spring.service.data.Priority
-import spring.service.data.Task
-import spring.service.data.TasksRepository
+import app.data.Priority
+import app.data.Task
+import app.data.TasksRepository
 import kotlin.system.exitProcess
 
 fun addTaskFromMenu(repository: TasksRepository) {

@@ -1,6 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("org.springframework.boot") version "2.7.6"
+    id("io.spring.dependency-management") version "1.1.0"
+    kotlin("plugin.spring") version "1.7.22"
     kotlin("jvm") version "1.7.20"
     application
     jacoco
@@ -10,18 +13,24 @@ plugins {
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
-val springVersion = "2.7.6"
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
+    testImplementation("io.mockk:mockk:1.9.3")
+    testImplementation("com.ninja-squad:springmockk:2.0.2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("org.testng:testng:7.1.0")
-    implementation("org.springframework.boot:spring-boot-starter-web:$springVersion")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.7.6")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("com.google.code.gson:gson:2.10.1")
+
 
 }
 
